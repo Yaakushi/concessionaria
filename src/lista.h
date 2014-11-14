@@ -10,18 +10,10 @@ typedef struct {
 
 Lista *listaInicia();
 
-int listaInsereHead(Lista *l, void *obj);
-
-int listaInsereTail(Lista *l, void *obj);
-
 int listaInsere(Lista *l, void *obj, int pos);
 
-void *listaRemoveHead(Lista *l);
-
-void *listaRemoveTail(Lista *l);
-
-void *listaRemove(Lista *l);
+void *listaRemove(Lista *l, int pos);
 
 int listaVazia(Lista *l);
 
-void listraDestroi(Lista *l);
+void listaDestroi(Lista *l);
