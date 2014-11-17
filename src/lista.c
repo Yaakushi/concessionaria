@@ -10,12 +10,14 @@ Lista *listaInicia() {
     return l;
 }
 
-int listaInsere(Lista *l, void *obj, int pos) {
+int listaInsere(Lista *l, Objeto *obj, int pos) {
     if(!l || pos < 1 || pos > l->tamanho+1) return 0;
     No *novo = malloc(sizeof(No));
     if(!novo) return 0;
     novo->obj = obj;
     if(pos == 1) {
+        if(l->tamanho == 0) l->ultimo = novo;
+        else l->primeiro->ant = novo;
         novo->prox = l->primeiro;
         novo->ant = NULL;
         l->primeiro = novo;
@@ -36,14 +38,16 @@ int listaInsere(Lista *l, void *obj, int pos) {
     return 1;
 }
 
-void *listaRemove(Lista *l, int pos) {
+Objeto *listaRemove(Lista *l, int pos) {
     if(!l || pos < 1 || pos > l->tamanho) return 0;
     int i;
     No *aux = l->primeiro;
     for(i = 1; i < pos; i++) aux = aux->prox;
-    aux->ant->prox = aux->prox;
-    aux->prox->ant = aux->ant;
-    void *obj = aux->obj;
+    if(aux->ant) aux->ant->prox = aux->prox;
+    else l->primeiro = aux->prox;
+    if(aux->prox) aux->prox->ant = aux->ant;
+    else l->ultimo = aux->ant;
+    Carro *obj = aux->obj;
     free(aux);
     l->tamanho--;
     return obj;
@@ -57,4 +61,14 @@ void listaDestroi(Lista *l) {
     while(!listaVazia(l)) listaRemove(l, 1);
     free(l);
     return;
+}
+
+int posicaoNo(Lista *l, No *no) {
+    int pos;
+    No *aux = l->primeiro;
+    for(pos = 1; aux != no; pos++) {
+        if(aux->prox == NULL) return l->tamanho + 1;
+        else aux = aux->prox;
+    }
+    return pos;
 }
