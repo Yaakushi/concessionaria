@@ -10,7 +10,7 @@ Lista *listaInicia() {
     return l;
 }
 
-int listaInsere(Lista *l, Objeto *obj, int pos) {
+int listaInsere(Lista *l, Objeto obj, int pos) {
     if(!l || pos < 1 || pos > l->tamanho+1) return 0;
     No *novo = malloc(sizeof(No));
     if(!novo) return 0;
@@ -22,6 +22,8 @@ int listaInsere(Lista *l, Objeto *obj, int pos) {
         novo->ant = NULL;
         l->primeiro = novo;
     } else if(pos == l->tamanho+1) {
+        if(l->tamanho == 0) l->primeiro = novo;
+        else l->ultimo->prox = novo;
         novo->prox = NULL;
         novo->ant = l->ultimo;
         l->ultimo = novo;
@@ -38,7 +40,7 @@ int listaInsere(Lista *l, Objeto *obj, int pos) {
     return 1;
 }
 
-Objeto *listaRemove(Lista *l, int pos) {
+Objeto listaRemove(Lista *l, int pos) {
     if(!l || pos < 1 || pos > l->tamanho) return 0;
     int i;
     No *aux = l->primeiro;
@@ -71,4 +73,12 @@ int posicaoNo(Lista *l, No *no) {
         else aux = aux->prox;
     }
     return pos;
+}
+
+No *getNo(Lista *l, int pos) {
+    if(pos < 1 || pos > l->tamanho) return NULL;
+    int i;
+    No *aux = l->primeiro;
+    for(i = 1; i < pos; i++) aux = aux->prox;
+    return aux;
 }

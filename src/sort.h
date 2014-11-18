@@ -10,15 +10,15 @@ void mergeSort(Lista *l, No *inicio, No *fim);
 
 void intercala(Lista *l, No *inicio, No *meio, No *fim);
 
-void insertSort(Lista *l, No *inicio, No *fim);
+void insertSort(Lista *l, int inicio, int fim);
 
 void selectSort(Lista *l, No *inicio, No *fim);
 
-int buscaSeqNome(Lista *l, Objeto *obj, No *inicio, No *fim);
+int buscaSeqNome(Lista *l, Objeto obj, No *inicio, No *fim);
 
-int buscaSeqFabricante(Lista *l, Objeto *obj, No *inicio, No *fim);
+int buscaSeqFabricante(Lista *l, Objeto obj, No *inicio, No *fim);
 
-int buscaSeqValor(Lista *l, Objeto *obj, No *inicio, No *fim);
+int buscaSeqValor(Lista *l, Objeto obj, No *inicio, No *fim);
 
 No *minimo(Lista *l, No *inicio, No *fim);
 

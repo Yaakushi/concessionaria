@@ -5,34 +5,19 @@
 
 #include <stdio.h>
 
-void insertSort(Lista *l, No *inicio, No *fim) {
+void insertSort(Lista *l, int inicio, int fim) {
     if(inicio != fim) {
-        insertSort(l, inicio, fim->ant);
-        int newPos = buscaSeqNome(l, fim->obj, inicio, fim->ant);
-        int oldPos = posicaoNo(l, fim);
-        No *aux = inicio;
-        printf("[%d -> %d] ", oldPos, newPos);
-        while(aux != NULL) {
-            printf("%s - ", aux->obj->nome);
-            aux = aux->prox;
-        }
-        printf("\n");
-        listaInsere(l, listaRemove(l, oldPos), newPos);
+        insertSort(l, inicio, fim-1);
+        No *nInicio = getNo(l, inicio), *nFim = getNo(l, fim);
+        int newPos = buscaSeqNome(l, nFim->obj, nInicio, nFim->ant);
+        listaInsere(l, listaRemove(l, fim), newPos);
     }
-    //fim->prox = aux->prox;
-    //if(fim != aux) {
-    //    fim->ant = aux;
-    //    aux->prox = fim;
-    //}
-    //if(aux->prox) aux->prox->ant = fim;
-    //if(fim->ant) fim->ant->prox = fim->prox;
-    //if(fim->prox) fim->prox->ant = fim->ant;
 }
 
-int buscaSeqNome(Lista *l, Objeto *obj, No *inicio, No *fim) {
+int buscaSeqNome(Lista *l, Objeto obj, No *inicio, No *fim) {
     int pos = posicaoNo(l, inicio);
     No *aux = inicio;
-    while(aux != fim->prox && strcmp(obj->nome, aux->obj->nome) == -1) {
+    while(aux != fim->prox && strcmp(obj->nome, aux->obj->nome) > 0) {
         pos++;
         aux = aux->prox;
     }
