@@ -11,5 +11,5 @@ teste: lista.o sort.o test.o
 clean:
 	rm -rf *.swp *~
 
-distclean:
+distclean: clean
 	rm -rf *.o teste core
