@@ -5,8 +5,8 @@ CC = gcc -g
 
 all: teste
 
-teste: lista.o sort.o test.o
-	$(CC) $^ -o teste
+teste: lista.o sort.o leitor.o concessionaria.o
+	$(CC) $^ -o concessionaria
 
 clean:
 	rm -rf *.swp *~
