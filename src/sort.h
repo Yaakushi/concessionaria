@@ -4,10 +4,12 @@
 //Importando pelo tipo Carro
 #include "lista.h"
 
-//void quickSort(Carro *vet, int inicio, int fim);
+// FUNÇÕES QUICKSORT
+void quickSort(Carro *vet, int inicio, int fim);
 
-//void particiona(Carro *vet, int inicio, int fim);
+int particiona(Carro *vet, int inicio, int fim);
 
+// FUNÇÕES MERGESORT
 void mergeSort(Carro *vet, int inicio, int fim);
 
 void intercala(Carro *vet, int inicio, int fim);
@@ -15,9 +17,10 @@ void intercala(Carro *vet, int inicio, int fim);
 // Copia o vetor "src" (de tamanho "length") para "dest" (a partir do indice "inicio").
 void copiaVetor(Carro *dest, int inicio, Carro *src, int length);
 
+// INSERTIONSORT: em lista duplamente encadeada.
 void insertSort(Lista *l, int inicio, int fim);
 
-// Select sort em lista duplamente encadeada.
+// SELECTIONSORT
 void selectSort(Carro *vet, int inicio, int fim);
 
 // Busca sequencial por nome.

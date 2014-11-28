@@ -70,3 +70,24 @@ void troca(Carro *vet, int x, int y) {
     vet[x] = vet[y];
     vet[y] = aux;
 }
+
+void quickSort(Carro *vet, int inicio, int fim) {
+	if (inicio >= fim) return;
+	int m = particiona(vet, inicio, fim);
+	quickSort(vet, inicio, m - 1);
+	quickSort(vet, m + 1, fim);
+	return;
+}
+
+int particiona(Carro *vet, int inicio, int fim) {
+	Carro aux = vet[inicio];
+	int j, i = inicio;
+	for (j = inicio + 1; j <= fim; j++) {
+		if (vet[j].preco <= aux.preco) {
+			i++;
+			troca(vet, i, j);
+		}
+	}
+	troca(vet, inicio, i);
+	return i;
+}
