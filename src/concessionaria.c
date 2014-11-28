@@ -15,19 +15,25 @@ int main() {
     printf("Ordenado por [Nome] utilizando [Selection Sort]\n");
     selectSort(vetCar, 0, vetSize-1);
     for(i = 0; i < vetSize; i++) {
-        printf("%s %s %d\n", vetCar[i].nome, vetCar[i].marca, vetCar[i].preco);
+        printf("%s %s ", vetCar[i].nome, vetCar[i].marca);
+        printNum(vetCar[i].preco);
+        printf("\n");
     }
 
     printf("\nOrdenado por [Marca] utilizando [Merge Sort]\n");
     mergeSort(vetCar, 0, vetSize-1);
     for(i = 0; i < vetSize; i++) {
-        printf("%s %s %d\n", vetCar[i].nome, vetCar[i].marca, vetCar[i].preco);
+        printf("%s %s ", vetCar[i].nome, vetCar[i].marca);
+        printNum(vetCar[i].preco);
+        printf("\n");
     }
 
     printf("\nOrdenado por [Valor] utilizando [Quick Sort]\n");
     quickSort(vetCar, 0, vetSize-1);
     for(i = 0; i < vetSize; i++) {
-        printf("%s %s %d\n", vetCar[i].nome, vetCar[i].marca, vetCar[i].preco);
+        printf("%s %s ", vetCar[i].nome, vetCar[i].marca);
+        printNum(vetCar[i].preco);
+        printf("\n");
     }
 
     Lista *lCar = listaInicia();
@@ -43,6 +49,9 @@ int main() {
     insertSort(lCar, 1, vetSize);
     for(i = 0; i < vetSize; i++) {
         Carro *aux = listaRemove(lCar, 1);
-        printf("%s %s %d\n", aux->nome, aux->marca, aux->preco);
+        printf("%s %s ", aux->nome, aux->marca);
+        printNum(aux->preco);
+        printf("\n");
     }
+    return 0;
 }

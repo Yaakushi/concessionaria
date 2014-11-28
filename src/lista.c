@@ -41,7 +41,7 @@ int listaInsere(Lista *l, Objeto obj, int pos) {
 }
 
 Objeto listaRemove(Lista *l, int pos) {
-    if(!l || pos < 1 || pos > l->tamanho) return 0;
+    if(!l || pos < 1 || pos > l->tamanho) return NULL;
     int i;
     No *aux = l->primeiro;
     for(i = 1; i < pos; i++) aux = aux->prox;

@@ -18,6 +18,19 @@ int getValorFromStr(char *str) {
     return valor;
 }
 
+void printNum(int num) {
+    char str[5][4];
+    int count = 0;
+    while(num) {
+        sprintf(str[count++], "%d", num % 1000); 
+        num = num / 1000;
+    }
+    while(count) {
+        printf("%s", str[--count]);
+        if(count) printf(".");
+    }
+}
+
 Carro *createCarro(char *input) {
     Carro *new = malloc(sizeof(Carro));
     if(!new) return NULL;

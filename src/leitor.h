@@ -11,6 +11,10 @@
 // Transforma a string em "str" em um valor numérico, ignorando os separadores de milhar.
 int getValorFromStr(char *str);
 
+// printNum
+// Imprime o valor "num" na tela, incluindo os separadores de milhar.
+void printNum(int num);
+
 // createCarro
 // Processa "input" de forma a separar o nome, a marca e o valor do carro.
 // Retorna um ponteiro para uma struct Carro alocada.

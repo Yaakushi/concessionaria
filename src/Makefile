@@ -1,12 +1,13 @@
-CC = gcc -g
+OUTPUTFILE=../bin/concessionaria
+CC = gcc -g -Wall
 
 %.o: %.c
 	$(CC) -c $<
 
-all: teste
+all: $(OUTPUTFILE)
 
-teste: lista.o sort.o leitor.o concessionaria.o
-	$(CC) $^ -o concessionaria
+$(OUTPUTFILE): lista.o sort.o leitor.o concessionaria.o
+	$(CC) $^ -o $(OUTPUTFILE)
 
 clean:
 	rm -rf *.swp *~
