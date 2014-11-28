@@ -4,6 +4,7 @@
 #include "leitor.h"
 
 int main() {
+
     int vetSize, i;
     Carro *vetCar = leEntrada(&vetSize);
     if(!vetCar) {
