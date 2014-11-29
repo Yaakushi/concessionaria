@@ -7,6 +7,7 @@ CC = gcc -g -Wall
 all: $(OUTPUTFILE)
 
 $(OUTPUTFILE): lista.o sort.o leitor.o concessionaria.o
+	mkdir -p ../bin
 	$(CC) $^ -o $(OUTPUTFILE)
 
 clean:
