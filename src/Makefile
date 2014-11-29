@@ -11,7 +11,7 @@ $(OUTPUTFILE): lista.o sort.o leitor.o concessionaria.o
 	$(CC) $^ -o $(OUTPUTFILE)
 
 clean:
-	rm -rf *.swp *~
+	rm -rf *.swp *~ *.bak core
 
 distclean: clean
-	rm -rf *.o teste core
+	rm -rf *.o $(OUTPUTFILE)

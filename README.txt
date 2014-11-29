@@ -6,6 +6,7 @@ Autores:
 
 Como compilar:
 Execute o comando "make" na pasta "src". Um executável será gerado na pasta "bin" (na raiz do projeto) caso a compilação ocorra com sucesso. Caso a pasta "bin" não exista, ela será criada durante o processo de make.
+O Makefile disponibiliza uma opção "distclean" para remover o executável e todo e qualquer arquivo temporário criado no processo de compilação.
 
 Relatório:
 O trabalho foi dividido em 4 módulos, sendo eles:
