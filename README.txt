@@ -4,6 +4,9 @@ Autores:
 - Jonathan Rodrigues Szlachta - jrs14 - GRR20143147
 - Kaio Augusto de Camargo - kac14 - GRR20143061
 
+Como compilar:
+Execute o comando "make" na pasta "src". Um executável será gerado na pasta "bin" (na raiz do projeto) caso a compilação ocorra com sucesso. Caso a pasta "bin" não exista, ela será criada durante o processo de make.
+
 Relatório:
 O trabalho foi dividido em 4 módulos, sendo eles:
 - Leitor: Módulo responsável pela leitura da entrada e processamento desses dados.
